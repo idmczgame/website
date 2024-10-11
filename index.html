@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oliver Fialka - ŽIVOTOPIS</title>
+    <title>Oliver Fialka - CV</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,13 +38,13 @@
 
     <script>
         const sections = [
-            `Jméno a příjmení: Oliver Fialka
+            `\nJméno a příjmení: Oliver Fialka
 Datum narození: 14. 07. 2009
 Adresa: Klenová 997/1, Praha 9, 19000
 Telefon: 728 500 420
 E-mail: oliver.fialka09@gmail.com
 `,
-            `--- Vzdělání ---
+            `\n--- Vzdělání ---
 Střední Smíchovská průmyslová škola a gymnázium
 1. ročník (obor Informační technologie)
 2024 – současnost
@@ -52,14 +52,14 @@ Střední Smíchovská průmyslová škola a gymnázium
 Gymnázium Karla Sladkovského
 2019-2024
 `,
-            `--- Pracovní zkušenosti ---
-Pomocné práce při organizaci koncertů – se stavbou stánků a pódií, výdej nápojů, příprava jídel.
+            `\n--- Pracovní zkušenosti ---
 Skladník, barman na koncertech, práce s hotovostí
+Pomocné práce při organizaci koncertů – se stavbou stánků a pódií, výdej nápojů, příprava jídel.
 Barman ve společnosti Fruitisimo.
 Pravidelná údržba zahrady a domu – práce s lehkými až středně těžkými stroji, příprava dřeva.
 Konfigurace e-shopu v rámci získávání zkušeností (www.elektronka-vaper.cz)
 `,
-            `--- Dovednosti ---
+            `\n--- Dovednosti ---
 Jazyky:
  - Angličtina: pokročilá úroveň (B2-C1)
  - Němčina: základy (A1-A2)
@@ -67,16 +67,16 @@ Technické dovednosti:
  - Programování: Python, C#
  - Znalost práce s počítačem, informačními systémy a hardwarem
 `,
-            `--- Osobní dovednosti ---
+            `\n--- Osobní dovednosti ---
  - Schopnost pracovat v týmu
  - Komunikativnost
  - Zodpovědnost a pečlivost
 `,
-            `--- Zájmy a aktivity ---
+            `\n--- Zájmy a aktivity ---
 Sporty:
  - Lezení, posilovna, jízda na horském kole, snowboard, lyžování, turistika v horách
 `,
-            `--- Motivace ---
+            `\n--- Motivace ---
 Projevuji tímto zájem o možnost získat jakoukoli pracovní zkušenost formou brigády v Cetin a.s.
 Společnost jsem několikrát navštívil, neboť je zde zaměstnána moje maminka v TV Media.
 Také jsem byl v NMC, kde jsem měl možnost vidět dohledové centrum a jeho 24/7 činnost.
@@ -92,17 +92,30 @@ Oliver Fialka
         ];
 
         let sectionIndex = 0;
-        const categoryDelay = 1500; // 1.5 seconds delay
+        let charIndex = 0;
+        let currentText = '';
+        const categoryDuration = 1500;  // 1.5 seconds per category
 
-        function showNextSection() {
+        function typeWriter() {
             if (sectionIndex < sections.length) {
-                document.getElementById("cvText").innerHTML += sections[sectionIndex];
-                sectionIndex++;
-                setTimeout(showNextSection, categoryDelay);
+                const section = sections[sectionIndex];
+                const typingSpeed = categoryDuration / section.length;  // Calculate speed per character
+
+                if (charIndex < section.length) {
+                    currentText += section.charAt(charIndex);
+                    document.getElementById("cvText").innerHTML = currentText;
+                    charIndex++;
+                    setTimeout(typeWriter, typingSpeed);
+                } else {
+                    // Move to the next section after finishing the current one
+                    sectionIndex++;
+                    charIndex = 0;
+                    setTimeout(typeWriter, typingSpeed);
+                }
             }
         }
 
-        window.onload = showNextSection;
+        window.onload = typeWriter;
     </script>
 </body>
 </html>
