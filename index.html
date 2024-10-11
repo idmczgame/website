@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oliver Fialka - CV</title>
+    <title>Oliver Fialka - ŽIVOTOPIS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,74 +37,72 @@
     </div>
 
     <script>
-        const text = `
-Jméno a příjmení: Oliver Fialka
+        const sections = [
+            `Jméno a příjmení: Oliver Fialka
 Datum narození: 14. 07. 2009
 Adresa: Klenová 997/1, Praha 9, 19000
 Telefon: 728 500 420
 E-mail: oliver.fialka09@gmail.com
-
---- Vzdělání ---
+`,
+            `--- Vzdělání ---
 Střední Smíchovská průmyslová škola a gymnázium
 1. ročník (obor Informační technologie)
 2024 – současnost
 
---- Pracovní zkušenosti ---
-Skladník, barman na koncertech
-Pomocné práce při organizaci koncertů – práce se skladem, výdej nápojů, příprava jídla (hranolků).
-
-Domácí práce a práce na zahradě
+Gymnázium Karla Sladkovského
+2019-2024
+`,
+            `--- Pracovní zkušenosti ---
+Pomocné práce při organizaci koncertů – se stavbou stánků a pódií, výdej nápojů, příprava jídel.
+Skladník, barman na koncertech, práce s hotovostí
+Barman ve společnosti Fruitisimo.
 Pravidelná údržba zahrady a domu – práce s lehkými až středně těžkými stroji, příprava dřeva.
-
-Stavba e-shopu
-Postavil jsem a nakonfiguroval e-shop pro zkušenost (www.elektronka-vaper.cz).
-I když jsem nebyl zaplacen, získal jsem cenné technické dovednosti.
-
---- Dovednosti ---
+Konfigurace e-shopu v rámci získávání zkušeností (www.elektronka-vaper.cz)
+`,
+            `--- Dovednosti ---
 Jazyky:
- - Angličtina – pokročilá úroveň (B2-C1)
- - Němčina – základy (A1-A2)
-
+ - Angličtina: pokročilá úroveň (B2-C1)
+ - Němčina: základy (A1-A2)
 Technické dovednosti:
  - Programování: Python, C#
- - Znalost práce s počítačem a informačními systémy
-
-Osobní dovednosti:
+ - Znalost práce s počítačem, informačními systémy a hardwarem
+`,
+            `--- Osobní dovednosti ---
  - Schopnost pracovat v týmu
  - Komunikativnost
  - Zodpovědnost a pečlivost
-
---- Zájmy a aktivity ---
+`,
+            `--- Zájmy a aktivity ---
 Sporty:
  - Lezení, posilovna, jízda na horském kole, snowboard, lyžování, turistika v horách
-
---- Motivace ---
+`,
+            `--- Motivace ---
 Projevuji tímto zájem o možnost získat jakoukoli pracovní zkušenost formou brigády v Cetin a.s.
 Společnost jsem několikrát navštívil, neboť je zde zaměstnána moje maminka v TV Media.
 Také jsem byl v NMC, kde jsem měl možnost vidět dohledové centrum a jeho 24/7 činnost.
-Mám zájem pracovat na pozicích souvisejících s technologií, protože mě fascinuje nová technologie.
-Studuji na Střední Smíchovské průmyslové škole a gymnáziu, které podporuje praxi a profesní růst.
-Chci si přivydělat peníze, ale také získat cenné zkušenosti do budoucnosti.
-Cetin jako jeden z hlavních poskytovatelů služeb je pro mě skvělou volbou.
+Studuji na Střední Smíchovské průmyslové škole a gymnáziu, které podporuje praxi v oboru a získávání profesních zkušeností.
+Mohu být k dispozici každý pátek nebo také v jiné dny v odpoledních hodinách od 15 hod či o víkendu.
+Mou motivací je získat cenné zkušenosti z praxe. Fascinují mě nové technologie a Cetin a.s. jako jeden z hlavních poskytovatelů služeb je pro mě skvělou volbou.
 
-Děkuji za zvážení mé žádosti a těším se na případnou spolupráci.
+Děkuji za zvážení mé žádosti o pracovní příležitost a těším se na případnou spolupráci.
 
 S pozdravem,
 Oliver Fialka
-`;
+`
+        ];
 
-        let index = 0;
-        const speed = 50;  // typing speed in milliseconds
+        let sectionIndex = 0;
+        const categoryDelay = 1500; // 1.5 seconds delay
 
-        function typeWriter() {
-            if (index < text.length) {
-                document.getElementById("cvText").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, speed);
+        function showNextSection() {
+            if (sectionIndex < sections.length) {
+                document.getElementById("cvText").innerHTML += sections[sectionIndex];
+                sectionIndex++;
+                setTimeout(showNextSection, categoryDelay);
             }
         }
 
-        window.onload = typeWriter;
+        window.onload = showNextSection;
     </script>
 </body>
 </html>
