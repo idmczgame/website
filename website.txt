@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oliver Fialka - CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        pre {
+            font-size: 18px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Oliver Fialka - CV</h1>
+        <pre id="cvText"></pre>
+    </div>
+
+    <script>
+        const text = `
+Jméno a příjmení: Oliver Fialka
+Datum narození: 14. 07. 2009
+Adresa: Klenová 997/1, Praha 9, 19000
+Telefon: 728 500 420
+E-mail: oliver.fialka09@gmail.com
+
+--- Vzdělání ---
+Střední Smíchovská průmyslová škola a gymnázium
+1. ročník (obor Informační technologie)
+2024 – současnost
+
+--- Pracovní zkušenosti ---
+Skladník, barman na koncertech
+Pomocné práce při organizaci koncertů – práce se skladem, výdej nápojů, příprava jídla (hranolků).
+
+Domácí práce a práce na zahradě
+Pravidelná údržba zahrady a domu – práce s lehkými až středně těžkými stroji, příprava dřeva.
+
+Stavba e-shopu
+Postavil jsem a nakonfiguroval e-shop pro zkušenost (www.elektronka-vaper.cz).
+I když jsem nebyl zaplacen, získal jsem cenné technické dovednosti.
+
+--- Dovednosti ---
+Jazyky:
+ - Angličtina – pokročilá úroveň (B2-C1)
+ - Němčina – základy (A1-A2)
+
+Technické dovednosti:
+ - Programování: Python, C#
+ - Znalost práce s počítačem a informačními systémy
+
+Osobní dovednosti:
+ - Schopnost pracovat v týmu
+ - Komunikativnost
+ - Zodpovědnost a pečlivost
+
+--- Zájmy a aktivity ---
+Sporty:
+ - Lezení, posilovna, jízda na horském kole, snowboard, lyžování, turistika v horách
+
+--- Motivace ---
+Projevuji tímto zájem o možnost získat jakoukoli pracovní zkušenost formou brigády v Cetin a.s.
+Společnost jsem několikrát navštívil, neboť je zde zaměstnána moje maminka v TV Media.
+Také jsem byl v NMC, kde jsem měl možnost vidět dohledové centrum a jeho 24/7 činnost.
+Mám zájem pracovat na pozicích souvisejících s technologií, protože mě fascinuje nová technologie.
+Studuji na Střední Smíchovské průmyslové škole a gymnáziu, které podporuje praxi a profesní růst.
+Chci si přivydělat peníze, ale také získat cenné zkušenosti do budoucnosti.
+Cetin jako jeden z hlavních poskytovatelů služeb je pro mě skvělou volbou.
+
+Děkuji za zvážení mé žádosti a těším se na případnou spolupráci.
+
+S pozdravem,
+Oliver Fialka
+`;
+
+        let index = 0;
+        const speed = 50;  // typing speed in milliseconds
+
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("cvText").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
